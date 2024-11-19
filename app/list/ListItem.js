@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 
-export default function ListItem() {
+export default function ListItem(props) {
     return (
         <div>
-            {result.map((r, idx) => {
+            {props.result.map((r, idx) => {
                 return (
                     <div className="list-item" key={idx}>
                         <Link

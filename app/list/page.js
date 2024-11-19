@@ -6,7 +6,6 @@ import ListItem from "./ListItem";
 // export const dynamic = "force-dynamic";
 export const revalidate = 20;
 
-
 export default async function List() {
     const client = await connectDB;
     const db = client.db("forum");
@@ -14,7 +13,7 @@ export default async function List() {
 
     return (
         <div className="list-bg">
-            <ListItem></ListItem>
+            <ListItem result={result}></ListItem>
         </div>
     );
 }
