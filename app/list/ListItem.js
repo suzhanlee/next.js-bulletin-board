@@ -21,7 +21,7 @@ export default function ListItem() {
                             className="link"
                         >수정페이지로
                         </Link>
-                        <span onClick={() => {
+                        <span onClick={(e) => {
                             fetch("/api/post/delete", {
                                 method : "DELETE",
                                 body : r._id
@@ -31,13 +31,15 @@ export default function ListItem() {
                                 } else {
                                    return r.json()
                                 }
-                              })
-                              .then((result) => { 
-                                console.log("success")
-                              }).catch((error) => {
+                            }).then((r) => { 
+                                e.target.parentElement.style.opacity = 0;
+                                setTimeout(() => {
+                                    e.target.parentElement.style.display = "none";
+                                }, 1000)
+                            }).catch((error) => {
                                 console.log("internet connect error")
                                 console.log(error)
-                              })
+                            })
                         }}>삭제</span>
                         <p>1월 1일</p>
                     </div>
