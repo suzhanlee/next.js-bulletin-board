@@ -1,11 +1,12 @@
 import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb";
 
-export default async function Detail(props) {
+export default async function Detail({ params }) {
+    console.log(params)
 
     const client = await connectDB;
     const db = client.db("forum");
-    let result = await db.collection("post").findOne({_id: new ObjectId(props.params.id)})
+    let result = await db.collection("post").findOne({_id: new ObjectId(params.id)})
 
     return (
         <div>

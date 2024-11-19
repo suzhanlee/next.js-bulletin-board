@@ -7,8 +7,6 @@ export default async function List() {
     const db = client.db("forum");
     let result = await db.collection("post").find().toArray();
 
-    document.getElementsByClassName("link").addListen
-
     return (
         <div className="list-bg">
             {result.map((r, idx) => {
